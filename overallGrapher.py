@@ -9,10 +9,10 @@ import os
 legend = []
 ritvikCount = 0
 othersCount = 0
-for file in os.listdir("ritvik/new/"):
+for file in os.listdir("extracted_data/"):
     if file.endswith(".csv"):
         messageTable = []
-        with open('ritvik/new/'+file,'r', encoding="utf8") as currcsv:
+        with open('extracted_data/'+file,'r', encoding="utf8") as currcsv:
             tab = csv.reader(currcsv)
             for row in tab:
                 index = 0

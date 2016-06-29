@@ -2,14 +2,18 @@ import datetime
 import numpy as np
 import csv
 import matplotlib.pyplot as plot
+import sys
 from math import ceil
+
+
+person = sys.argv[0]
 
 messageTable = []
 dailyTable = []
 timeTable = []
 countTable = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 
-with open('ritvik/new/Ari Cohn.csv','r', encoding="utf8") as currcsv:
+with open('extracted_data/%s.csv' % person,'r', encoding="utf8") as currcsv:
     tab = csv.reader(currcsv)
     for row in tab:
         index = 0
