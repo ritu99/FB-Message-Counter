@@ -11,16 +11,16 @@ MESSAGE_END = "MESSAGE_END"
 VOCABULARY_SIZE = 5000
 UNKNOWN_TOKEN = "??????"
 
-ritvik_messages = []
+user_messages = []
 all_messages = []
 
-for file in os.listdir("ritvik/new/"):
+for file in os.listdir("extracted_data/"):
     if file.endswith(".csv"):
         with open('ritvik/new/'+file,'r', encoding="utf8") as currcsv:
             tab = csv.reader(currcsv)
             for row in tab:
-                if "Ritvik" in row[0]:
-                    ritvik_messages.append("%s %s %s" % (MESSAGE_START, str("".join(row[4:])).replace("&#039;","'").replace("&quot;",'"').lower(), MESSAGE_END))
+                if "Name" in row[0]:
+                    user_messages.append("%s %s %s" % (MESSAGE_START, str("".join(row[4:])).replace("&#039;","'").replace("&quot;",'"').lower(), MESSAGE_END))
 
 
 # print(ritvikMessages)
@@ -28,7 +28,7 @@ for file in os.listdir("ritvik/new/"):
 #Not using the sentance beraker upper because each message is in and of itself a "sentance"
 # sentences = itertools.chain(*[sent for sent in nltk.sent_tokenize(ritvikMessages)])
 
-tokenized_messages = [nltk.word_tokenize(sentence) for sentence in ritvik_messages]
+tokenized_messages = [nltk.word_tokenize(sentence) for sentence in user_messages]
 
 word_freq = nltk.FreqDist(itertools.chain(*tokenized_messages))
 

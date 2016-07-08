@@ -13,7 +13,7 @@ def cleanline(line):
 		line = re.sub(commafy, ',', line)
 	return line
 
-def extract_data(name):
+def extract_data(user):
 	cache = []
 	linebuff = ''
 	person = ''
@@ -62,7 +62,7 @@ def extract_data(name):
 						open('extracted_data/%s.csv' % person, 'a', encoding="utf8").write('\n'.join(cache))
 					print ('Finished %s' % person)
 					cache = []
-					person = line[len(r'<div class="thread">'):].replace(', Ritvik Annam','').replace(", Ronit AkaRitvik Roy","").replace("Ritvik Annam, ","")[:30]
+					person = line[len(r'<div class="thread">'):].replace(', ' + user,'').replace(", Ronit AkaRitvik Roy","").replace(user + ", ","")[:30]
 				elif any(line.startswith(s) for s in ('<div class="message">', '<html>', '<div class="nav">', '<div class="contents">', '<div>', '<div class="footer">')):
 					pass
 				else:
