@@ -16,7 +16,7 @@ all_messages = []
 
 for file in os.listdir("extracted_data/"):
     if file.endswith(".csv"):
-        with open('ritvik/new/'+file,'r', encoding="utf8") as currcsv:
+        with open('extracted_data/'+file,'r', encoding="utf8") as currcsv:
             tab = csv.reader(currcsv)
             for row in tab:
                 if "Name" in row[0]:
