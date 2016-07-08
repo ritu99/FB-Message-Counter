@@ -80,4 +80,4 @@ model.sgd_step(X_train[1], y_train[1], 0.005)
 t2 = time.time()
 print ("SGD Step time: %f milliseconds" % ((t2 - t1) * 1000.))
 
-train_with_sgd(model, X_train, y_train, nepoch=1, learning_rate=0.005)
+train_with_sgd(model, X_train, y_train, nepoch=100, learning_rate=0.005)
