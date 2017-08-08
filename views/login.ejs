@@ -5,12 +5,38 @@
   </head>
   <body>
     <% include partials/header %>
-    <div id="container">
-      <form action = "http://127.0.0.1:8081/data" method = "post" >
-         Username: <input type = "text" name = "username">  <br>
-         Password: <input type = "password" name = "password">
-         <input type = "submit" value = "Submit">
-      </form>
+    <div class="container">
+        <div class="">
+            <form action = "http://127.0.0.1:8081/" method = "post" >
+              <% if(data === "error"){ %>
+                  <div class="form-group row has-danger">
+                  <div class="form-control-feedback col-5">Wrong Username/Password</div>
+                  <div class="col-7"> </div>
+               <% } else{ %>
+                 <div class="form-group row">
+              <% } %>
+                <label class="col-form-label col-1" for="email">Username</label>
+                <div class="col-3">
+                  <input id="email" class="form-control" type="text" name = "username" placeholder="fbusername or email address">
+                </div>
+              </div>
+              <% if(data === "error"){ %>
+                  <div class="form-group row has-danger">
+               <% } else{ %>
+                 <div class="form-group row">
+              <% } %>
+                <label class="col-form-label col-1" for="password">Password</label>
+                <div class="col-3">
+                  <input id="password" class="form-control" type="password" name="password" placeholder="password">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
     </div>
   </body>
 </html>
